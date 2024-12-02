@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartu Ucapan Digital</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ffcccc, #ffe6e6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            border: 2px solid #ff69b4;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: fadeIn 2s;
+            overflow: hidden;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .button {
+            background-color: #ff69b4;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+        .heart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            display: inline-block;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 160px;
+            border-radius: 100px 100px 0 0;
+            background: #ff69b4;
+        }
+        .heart::before {
+            left: 100px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        .heart-text {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            animation: moveHeart 2s infinite alternate;
+        }
+        @keyframes moveHeart {
+            0% { transform: translate(-50%, -50%) translateY(0); }
+            100% { transform: translate(-50%, -50%) translateY(-10px); }
+        }
+        /* Heart borders */
+        .heart-border {
+            position: absolute;
+            width: 20px;
+            height: 18px;
+            background: #ff69b4;
+            transform: rotate(45deg);
+        }
+        .heart-border::before,
+        .heart-border::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ff69b4;
+        }
+        .heart-border::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart-border::after {
+            top: 0;
+            left: -10px;
+        }
+        .heart-border.top-left { top: -10px; left: -10px; }
+        .heart-border.top-right { top: -10px; right: -10px; }
+        .heart-border.bottom-left { bottom: -10px; left: -10px; }
+        .heart-border.bottom-right { bottom: -10px; right: -10px; }
+        .heart-border.top-center { top: -10px; left: 50%; transform: translateX(-50%) rotate(45deg); }
+        .heart-border.bottom-center { bottom: -10px; left: 50%; transform: translateX(-50%) rotate(45deg); }
+        .heart-border.left-center { top: 50%; left: -10px; transform: translateY(-50%) rotate(45deg); }
+        .heart-border.right-center { top: 50%; right: -10px; transform: translateY(-50%) rotate(45deg); }
+        /* Repeated text */
+        .repeated-text {
+            position: absolute;
+            font-size: 12px;
+            color: #ff69b4;
+            opacity: 0.5;
+            transform: rotate(-30deg);
+            white-space: nowrap;
+            width: 100%;
+        }
+        .repeated-text1 { top: 0; left: 0; animation: scrollText 10s linear infinite; }
+        .repeated-text2 { top: 50px; left: -100%; animation: scrollText 12s linear infinite; }
+        .repeated-text3 { top: 100px; left: 0; animation: scrollText 14s linear infinite; }
+        @keyframes scrollText {
+            from { left: 100%; }
+            to { left: -100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Boleh kan aku bikinin ini buat dea?</h1>
+        <p>Ini aku bikin khusus buat dea doangggg.</p>
+        <button class="button" onclick="openModal('Dea jangan badmood lagi ya, udah gausa ditanggepin yang tadi, ini aku iseng bikin ini buat dea hehehe maap ya ;)')">Klik Aku!</button>
+        <button class="button" onclick="openModal('Tetap semangat ya Deaaaa ku, eh, hehehehe maapkan dea :)')">Jangan Sedih!</button>
+        <div class="heart-container">
+            <div class="heart">
+                <div class="heart-text">DEA</div>
+            </div>
+        </div>
+        <div class="heart-border top-left"></div>
+        <div class="heart-border top-right"></div>
+        <div class="heart-border bottom-left"></div>
+        <div class="heart-border bottom-right"></div>
+        <div class="heart-border top-center"></div>
+        <div class="heart-border bottom-center"></div>
+        <div class="heart-border left-center"></div>
+        <div class="heart-border right-center"></div>
+        <div class="repeated-text repeated-text1">Dea bukan dhea ya! &nbsp; Dea bukan dhea ya! &nbsp; Dea bukan dhea ya! &nbsp; Dea bukan dhea ya!</div>
+        <div class="repeated-text repeated-text2">Dea bukan dhea ya! &nbsp; Dea bukan dhea ya! &nbsp; Dea bukan dhea ya! &nbsp; Dea bukan dhea ya!</div>
+        <div class="repeated-text repeated-text3">Dea bukan dhea ya! &nbsp; Dea bukan dhea ya! &nbsp; Dea bukan dhea ya! &nbsp; Dea bukan dhea ya!</div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(message) {
+            document.getElementById('modalMessage').innerText = message;
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
